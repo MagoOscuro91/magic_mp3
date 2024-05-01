@@ -9,7 +9,7 @@ nombre_sonido = ["saringansasuke", "Chidorisasuke", "itachimangekio", "itachiama
 
 
 def reproducir_sonido(nombre_sonido=""):
-    ruta_sonido = f"f:/workspace/apps/windows/magic_mp3/assets/{nombre_sonido}.mp3"
+    ruta_sonido = f"./assets/{nombre_sonido}.mp3"
     sonido = pygame.mixer.Sound(ruta_sonido)
     sonido.set_volume(0.20)
     sonido.play()
@@ -17,7 +17,7 @@ def reproducir_sonido(nombre_sonido=""):
 
 def reproducir_musica():
     pygame.mixer.init()
-    pygame.mixer.music.load("f:/workspace/apps/windows/magic_mp3/assets/itachimenu.mp3")
+    pygame.mixer.music.load("./assets/itachimenu.mp3")
     pygame.mixer.music.play(loops=-1)
 
 
@@ -37,7 +37,7 @@ ventana.geometry("749x467+467+100")
 style = ttk.Style()
 style.configure("TButton", font=("Segoe UI", 12), padding=10)
 
-imagen_fondo = Image.open("f:/workspace/apps/windows/magic_mp3/assets/nubes.jpg")
+imagen_fondo = Image.open("./assets/nubes.jpg")
 imagen_fondo = imagen_fondo.resize((749, 467), Image.LANCZOS)
 imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 

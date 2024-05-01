@@ -1,4 +1,4 @@
-('F:\\workspace\\apps\\windows\\magic_mp3\\build\\app\\PYZ-00.pyz',
+('F:\\workspace\\apps\\windows\\magic_mp3\\magic_mp3_app\\build\\app\\PYZ-00.pyz',
  [('PIL',
    'C:\\Users\\jonan\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PIL\\__init__.py',
    'PYMODULE'),
