@@ -1,5 +1,6 @@
 from data import descargar_mp4, descargar_mp4_clip, descargar_mp3_2, descargar_mp3_clip_2
 import pygame
+import os
 import tkinter as tk
 from tkinter import ttk
 from PIL import ImageTk, Image
@@ -9,7 +10,8 @@ nombre_sonido = ["saringansasuke", "Chidorisasuke", "itachimangekio", "itachiama
 
 
 def reproducir_sonido(nombre_sonido=""):
-    ruta_sonido = f"./assets/{nombre_sonido}.mp3"
+    current_dir = os.path.dirname(__file__)
+    ruta_sonido =  os.path.join(current_dir, 'assets', f'{nombre_sonido}.mp3')
     sonido = pygame.mixer.Sound(ruta_sonido)
     sonido.set_volume(0.20)
     sonido.play()
@@ -17,7 +19,7 @@ def reproducir_sonido(nombre_sonido=""):
 
 def reproducir_musica():
     pygame.mixer.init()
-    pygame.mixer.music.load("./assets/itachimenu.mp3")
+    pygame.mixer.music.load(os.path.join(os.path.dirname(__file__), 'assets', 'itachimenu.mp3'))
     pygame.mixer.music.play(loops=-1)
 
 
@@ -37,7 +39,7 @@ ventana.geometry("749x467+467+100")
 style = ttk.Style()
 style.configure("TButton", font=("Segoe UI", 12), padding=10)
 
-imagen_fondo = Image.open("./assets/nubes.jpg")
+imagen_fondo = Image.open(os.path.join(os.path.dirname(__file__), 'assets', 'nubes.jpg'))
 imagen_fondo = imagen_fondo.resize((749, 467), Image.LANCZOS)
 imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 
@@ -98,3 +100,6 @@ scale.place(x=10, y=10)
 reproducir_musica()
 
 ventana.mainloop()
+
+# pyinstaller --exclude='.venv' --exclude='.gitignore' --exclude='__pycache__/' --exclude='requirements.txat' --add-data "assets;assets" --noconsole app.py data.py | comando para empaquetar desde magic_mp3_app teniendo la carpeta assets junto con los ficheros.py
+# Nota en este no me a echo falta mover la carpeta assets.
